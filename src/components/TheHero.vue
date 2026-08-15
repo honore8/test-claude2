@@ -1,5 +1,5 @@
 <script setup>
-import MonumentalComb from "./MonumentalComb.vue";
+import PeignePick from "./PeignePick.vue";
 
 defineProps({
   onRequestInvitation: {
@@ -12,7 +12,7 @@ defineProps({
 <template>
   <section class="hero">
     <div class="hero__comb" aria-hidden="true">
-      <MonumentalComb tone="light" />
+      <PeignePick tone="light" />
     </div>
 
     <div class="hero__content container">
@@ -40,40 +40,37 @@ defineProps({
   position: relative;
   min-height: 100svh;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   overflow: hidden;
   isolation: isolate;
 }
 
 .hero__comb {
   position: absolute;
-  top: -6vh;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(1100px, 150vw);
-  height: 78vh;
-  color: var(--white);
+  top: -20vh;
+  right: -9vw;
+  height: 150vh;
+  aspect-ratio: 275.75048 / 607.53936;
   z-index: 0;
   pointer-events: none;
-  mask-image: linear-gradient(to bottom, black 0%, black 58%, transparent 82%);
-  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 58%, transparent 82%);
 }
 
 .hero__content {
   position: relative;
   z-index: 1;
   width: 100%;
-  padding-bottom: clamp(3.5rem, 9vh, 6rem);
-  padding-top: clamp(6rem, 16vh, 9rem);
-  text-align: center;
+  max-width: 640px;
+  padding-top: clamp(6rem, 12vh, 8rem);
+  padding-bottom: clamp(6rem, 12vh, 8rem);
+  text-align: left;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .hero__title {
   font-family: var(--font-display);
-  font-size: clamp(3.4rem, 13vw, 8.5rem);
+  font-size: clamp(3.4rem, 9vw, 6.5rem);
   line-height: 0.92;
   letter-spacing: -0.01em;
 }
@@ -133,13 +130,28 @@ defineProps({
   }
 }
 
-@media (max-width: 640px) {
-  .hero {
-    align-items: center;
-  }
+@media (max-width: 900px) {
   .hero__comb {
-    height: 62vh;
-    top: -4vh;
+    top: -14vh;
+    right: -14vw;
+    height: 120vh;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero__comb {
+    top: -3vh;
+    right: -30vw;
+    height: 56vh;
+    mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 85%);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 85%);
+  }
+
+  .hero__content {
+    max-width: none;
+    text-align: center;
+    align-items: center;
+    padding-top: clamp(7rem, 20vh, 9rem);
   }
 }
 </style>
