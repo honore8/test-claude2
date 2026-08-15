@@ -47,9 +47,9 @@ defineProps({
 
 .hero__comb {
   position: absolute;
-  top: -20vh;
-  right: -9vw;
-  height: 150vh;
+  top: -16vw;
+  right: -8vw;
+  width: clamp(560px, 46vw, 980px);
   aspect-ratio: 275.75048 / 607.53936;
   z-index: 0;
   pointer-events: none;
@@ -130,19 +130,19 @@ defineProps({
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .hero__comb {
-    top: -14vh;
-    right: -14vw;
-    height: 120vh;
+    top: -10vw;
+    right: -18vw;
+    width: clamp(300px, 40vw, 460px);
   }
 }
 
 @media (max-width: 640px) {
   .hero__comb {
     top: -3vh;
-    right: -30vw;
-    height: 56vh;
+    right: -34vw;
+    width: clamp(220px, 60vw, 380px);
     mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 85%);
     -webkit-mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 85%);
   }
@@ -152,6 +152,13 @@ defineProps({
     text-align: center;
     align-items: center;
     padding-top: clamp(7rem, 20vh, 9rem);
+  }
+}
+
+@media (max-width: 360px) {
+  .hero__comb {
+    right: -38vw;
+    width: clamp(200px, 62vw, 300px);
   }
 }
 </style>
