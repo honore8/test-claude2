@@ -84,7 +84,7 @@ defineProps({
 }
 
 .hero__title {
-  font-family: var(--font-hero-serif);
+  font-family: var(--font-display);
   font-weight: 900;
   font-size: clamp(3.6rem, 9.5vw, 7rem);
   line-height: 0.9;
@@ -93,7 +93,7 @@ defineProps({
 
 .hero__signature {
   margin-top: clamp(0.9rem, 2vw, 1.3rem);
-  font-family: var(--font-rounded);
+  font-family: var(--font-body);
   font-size: clamp(1rem, 2.2vw, 1.35rem);
   font-weight: 400;
   color: var(--white);
@@ -128,7 +128,7 @@ defineProps({
   flex-direction: column;
   justify-content: center;
   gap: 0.4rem;
-  font-family: var(--font-rounded);
+  font-family: var(--font-body);
   font-size: clamp(1.05rem, 2.4vw, 1.4rem);
 }
 

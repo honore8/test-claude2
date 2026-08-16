@@ -9,10 +9,8 @@
   --muted-on-navy: rgba(255, 255, 255, 0.62);
   --muted-on-bone: rgba(13, 21, 51, 0.6);
 
-  --font-display: "Archivo Black", "Helvetica Neue", Arial, sans-serif;
-  --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
-  --font-hero-serif: "Fraunces", "Georgia", serif;
-  --font-rounded: "Poppins", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Poppins", "Helvetica Neue", Arial, sans-serif;
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --container: 1180px;

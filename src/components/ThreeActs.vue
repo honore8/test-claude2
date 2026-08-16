@@ -71,6 +71,7 @@ const acts = [
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: var(--font-display);
+  font-weight: 900;
   font-size: clamp(14rem, 42vw, 26rem);
   line-height: 1;
   color: var(--white);
@@ -111,6 +112,7 @@ const acts = [
 
 .act__title {
   font-family: var(--font-display);
+  font-weight: 900;
   font-size: clamp(1.7rem, 4.4vw, 3rem);
   line-height: 1.12;
   letter-spacing: -0.01em;

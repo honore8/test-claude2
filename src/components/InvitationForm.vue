@@ -393,6 +393,7 @@ async function submit() {
 
 .invitation__headline {
   font-family: var(--font-display);
+  font-weight: 900;
   font-size: clamp(1.7rem, 4.4vw, 2.6rem);
   line-height: 1.15;
   max-width: 18ch;
@@ -503,6 +504,7 @@ async function submit() {
 
 .step__label {
   font-family: var(--font-display);
+  font-weight: 900;
   font-size: clamp(1.3rem, 3vw, 1.7rem);
   line-height: 1.2;
   margin-bottom: clamp(1.5rem, 4vh, 2rem);
@@ -744,6 +746,7 @@ async function submit() {
 
 .card__done h3 {
   font-family: var(--font-display);
+  font-weight: 900;
   font-size: clamp(1.8rem, 4vw, 2.4rem);
   margin: 1rem 0 1.25rem;
 }
