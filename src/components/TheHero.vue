@@ -11,7 +11,7 @@ defineProps({
 
 <template>
   <section class="hero">
-    <div class="hero__comb hero__comb--desktop" aria-hidden="true">
+    <div class="hero__comb" aria-hidden="true">
       <PeignePick tone="light" />
     </div>
 
@@ -35,12 +35,6 @@ defineProps({
       </button>
     </div>
 
-    <div class="hero__comb-mobile container" aria-hidden="true">
-      <div class="hero__comb-mobile-inner">
-        <PeignePick tone="light" />
-      </div>
-    </div>
-
     <div class="hero__scroll" aria-hidden="true">
       <span class="hero__scroll-line"></span>
     </div>
@@ -59,7 +53,7 @@ defineProps({
   isolation: isolate;
 }
 
-.hero__comb--desktop {
+.hero__comb {
   position: absolute;
   top: 4vh;
   right: 2vw;
@@ -84,7 +78,7 @@ defineProps({
 }
 
 .hero__title {
-  font-family: var(--font-display);
+  font-family: var(--font-wordmark);
   font-weight: 900;
   font-size: clamp(3.6rem, 9.5vw, 7rem);
   line-height: 0.9;
@@ -145,16 +139,6 @@ defineProps({
   margin-top: clamp(2.25rem, 6vh, 3.25rem);
 }
 
-.hero__comb-mobile {
-  display: none;
-}
-
-.hero__comb-mobile-inner {
-  height: clamp(200px, 34vh, 320px);
-  width: auto;
-  aspect-ratio: 139.07036 / 420.37173;
-}
-
 .hero__scroll {
   position: absolute;
   bottom: clamp(1.25rem, 3vh, 2rem);
@@ -185,7 +169,7 @@ defineProps({
 }
 
 @media (max-width: 1160px) {
-  .hero__comb--desktop {
+  .hero__comb {
     top: 3vh;
     right: 5vw;
     height: auto;
@@ -194,20 +178,25 @@ defineProps({
 }
 
 @media (max-width: 640px) {
-  .hero__comb--desktop {
-    display: none;
+  .hero__title {
+    font-size: clamp(2.5rem, 11vw, 3.6rem);
   }
 
-  .hero__comb-mobile {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 2.5rem;
+  .hero__comb {
+    top: 2.5vh;
+    right: 6vw;
+    width: clamp(60px, 15vw, 105px);
   }
 }
 
-@media (max-width: 360px) {
-  .hero__comb-mobile-inner {
-    height: clamp(170px, 30vh, 260px);
+@media (max-width: 400px) {
+  .hero__title {
+    font-size: clamp(2.15rem, 12vw, 2.6rem);
+  }
+
+  .hero__comb {
+    right: 3vw;
+    width: clamp(44px, 15vw, 80px);
   }
 }
 </style>

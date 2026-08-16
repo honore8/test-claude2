@@ -34,7 +34,6 @@
 
 .idea__statement {
   font-family: var(--font-display);
-  font-weight: 900;
   font-size: clamp(1.9rem, 5.4vw, 3.6rem);
   line-height: 1.14;
   letter-spacing: -0.01em;

@@ -1,5 +1,5 @@
 import { createApp } from "vue";
-import "@fontsource/fraunces/700.css";
+import "@fontsource/archivo-black";
 import "@fontsource/fraunces/900.css";
 import "@fontsource/poppins/400.css";
 import "@fontsource/poppins/500.css";
