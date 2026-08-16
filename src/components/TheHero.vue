@@ -47,9 +47,10 @@ defineProps({
 
 .hero__comb {
   position: absolute;
-  top: -16vw;
-  right: -8vw;
-  width: clamp(560px, 46vw, 980px);
+  top: -3vh;
+  right: -2vw;
+  height: clamp(600px, 88vh, 1000px);
+  width: auto;
   aspect-ratio: 139.07036 / 420.37173;
   z-index: 0;
   pointer-events: none;
@@ -132,33 +133,25 @@ defineProps({
 
 @media (max-width: 1024px) {
   .hero__comb {
-    top: -10vw;
-    right: -18vw;
-    width: clamp(300px, 40vw, 460px);
+    top: -2vh;
+    right: -4vw;
+    height: clamp(460px, 78vh, 760px);
   }
 }
 
 @media (max-width: 640px) {
   .hero__comb {
-    top: -2vh;
-    right: -33vw;
-    width: clamp(150px, 40vw, 250px);
-    mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 85%);
-    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 85%);
-  }
-
-  .hero__content {
-    max-width: none;
-    text-align: center;
-    align-items: center;
-    padding-top: clamp(5.5rem, 17vh, 7.25rem);
+    top: -1vh;
+    right: -22vw;
+    height: auto;
+    width: clamp(100px, 26vw, 170px);
   }
 }
 
 @media (max-width: 360px) {
   .hero__comb {
-    right: -34vw;
-    width: clamp(140px, 44vw, 200px);
+    right: -26vw;
+    width: clamp(85px, 27vw, 130px);
   }
 }
 </style>
