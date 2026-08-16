@@ -3,6 +3,7 @@
   --navy-deep: #080d21;
   --white: #ffffff;
   --bone: #f6f4ef;
+  --terracotta: #d88d63;
   --line: rgba(255, 255, 255, 0.16);
   --line-dark: rgba(13, 21, 51, 0.14);
   --muted-on-navy: rgba(255, 255, 255, 0.62);
@@ -10,6 +11,8 @@
 
   --font-display: "Archivo Black", "Helvetica Neue", Arial, sans-serif;
   --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-hero-serif: "Fraunces", "Georgia", serif;
+  --font-rounded: "Poppins", "Helvetica Neue", Arial, sans-serif;
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --container: 1180px;
