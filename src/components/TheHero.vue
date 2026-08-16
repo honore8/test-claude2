@@ -15,7 +15,7 @@ defineProps({
       <PeignePick tone="light" />
     </div>
 
-    <div class="hero__content container">
+    <div class="hero__content">
       <h1 class="hero__title">THE SALON</h1>
       <p class="hero__signature">
         <span class="hero__signature-light">Convened by</span>
@@ -25,7 +25,7 @@ defineProps({
       <div class="hero__meta">
         <span class="hero__meta-bar" aria-hidden="true"></span>
         <div class="hero__meta-text">
-          <p><span class="hero__date">September 17, 2026</span> · New York</p>
+          <p class="hero__date">September 17, 2026 · New York</p>
           <p class="hero__meta-sub">By invitation only</p>
         </div>
       </div>
@@ -43,12 +43,9 @@ defineProps({
 
 <style scoped>
 .hero {
+  --comb-h: clamp(560px, 92vh, 980px);
   position: relative;
   min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
   isolation: isolate;
 }
@@ -57,7 +54,7 @@ defineProps({
   position: absolute;
   top: 0;
   right: 0;
-  height: clamp(560px, 92vh, 980px);
+  height: var(--comb-h);
   width: auto;
   aspect-ratio: 139.07036 / 420.37173;
   z-index: 0;
@@ -65,12 +62,16 @@ defineProps({
 }
 
 .hero__content {
-  position: relative;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: max(calc(var(--comb-h) / 2), 13rem);
+  transform: translateY(-50%);
   z-index: 1;
   width: 100%;
   max-width: 640px;
-  padding-top: clamp(4.5rem, 9vh, 6.25rem);
-  padding-bottom: clamp(3rem, 8vh, 5rem);
+  padding: 0 clamp(1.25rem, 5vw, 3rem);
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -127,7 +128,7 @@ defineProps({
 }
 
 .hero__date {
-  color: var(--terracotta);
+  color: #e7aa7a;
 }
 
 .hero__meta-sub {
@@ -169,6 +170,10 @@ defineProps({
 }
 
 @media (max-width: 1160px) {
+  .hero {
+    --comb-h: clamp(393px, 60.45vw, 695px);
+  }
+
   .hero__comb {
     top: 0;
     right: 0;
@@ -178,6 +183,10 @@ defineProps({
 }
 
 @media (max-width: 640px) {
+  .hero {
+    --comb-h: clamp(242px, 60.45vw, 423px);
+  }
+
   .hero__comb {
     top: 0;
     right: 0;
@@ -186,6 +195,10 @@ defineProps({
 }
 
 @media (max-width: 400px) {
+  .hero {
+    --comb-h: clamp(193px, 60.45vw, 302px);
+  }
+
   .hero__comb {
     width: clamp(64px, 20vw, 100px);
   }
