@@ -41,6 +41,7 @@ const currentStep = ref(1);
 const direction = ref("forward");
 const submitted = ref(false);
 const submitting = ref(false);
+const submitError = ref("");
 const stepRoot = ref(null);
 const touched = reactive({});
 
@@ -173,10 +174,23 @@ async function submit() {
   touched[5] = true;
   if (!stepValid.value) return;
   submitting.value = true;
-  // Wire this to your submission endpoint (e.g. POST to a form backend).
-  await new Promise((resolve) => setTimeout(resolve, 700));
-  submitting.value = false;
-  submitted.value = true;
+  submitError.value = "";
+  try {
+    const response = await fetch("/api/invitations", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...form }),
+    });
+    if (!response.ok) {
+      const data = await response.json().catch(() => ({}));
+      throw new Error(data.error || "Something went wrong. Please try again.");
+    }
+    submitted.value = true;
+  } catch (err) {
+    submitError.value = err.message || "Something went wrong. Please try again.";
+  } finally {
+    submitting.value = false;
+  }
 }
 </script>
 
@@ -346,6 +360,7 @@ async function submit() {
                   </div>
 
                   <p v-if="errorMessage" class="step__error" role="alert">{{ errorMessage }}</p>
+                  <p v-if="submitError" class="step__error" role="alert">{{ submitError }}</p>
                 </div>
 
                 <div class="step__actions">
