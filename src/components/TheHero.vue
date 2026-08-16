@@ -55,9 +55,9 @@ defineProps({
 
 .hero__comb {
   position: absolute;
-  top: 4vh;
-  right: 2vw;
-  height: clamp(480px, 76vh, 820px);
+  top: 0;
+  right: 0;
+  height: clamp(560px, 92vh, 980px);
   width: auto;
   aspect-ratio: 139.07036 / 420.37173;
   z-index: 0;
@@ -170,33 +170,24 @@ defineProps({
 
 @media (max-width: 1160px) {
   .hero__comb {
-    top: 3vh;
-    right: 5vw;
+    top: 0;
+    right: 0;
     height: auto;
-    width: clamp(110px, 15vw, 190px);
+    width: clamp(130px, 20vw, 230px);
   }
 }
 
 @media (max-width: 640px) {
-  .hero__title {
-    font-size: clamp(2.5rem, 11vw, 3.6rem);
-  }
-
   .hero__comb {
-    top: 2.5vh;
-    right: 6vw;
-    width: clamp(60px, 15vw, 105px);
+    top: 0;
+    right: 0;
+    width: clamp(80px, 20vw, 140px);
   }
 }
 
 @media (max-width: 400px) {
-  .hero__title {
-    font-size: clamp(2.15rem, 12vw, 2.6rem);
-  }
-
   .hero__comb {
-    right: 3vw;
-    width: clamp(44px, 15vw, 80px);
+    width: clamp(64px, 20vw, 100px);
   }
 }
 </style>
