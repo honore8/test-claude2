@@ -50,7 +50,7 @@ defineProps({
   top: -16vw;
   right: -8vw;
   width: clamp(560px, 46vw, 980px);
-  aspect-ratio: 275.75048 / 607.53936;
+  aspect-ratio: 139.07036 / 420.37173;
   z-index: 0;
   pointer-events: none;
 }
@@ -60,8 +60,8 @@ defineProps({
   z-index: 1;
   width: 100%;
   max-width: 640px;
-  padding-top: clamp(6rem, 12vh, 8rem);
-  padding-bottom: clamp(6rem, 12vh, 8rem);
+  padding-top: clamp(4.5rem, 9vh, 6.25rem);
+  padding-bottom: clamp(7.5rem, 15vh, 9.75rem);
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -85,7 +85,7 @@ defineProps({
 }
 
 .hero__meta {
-  margin-top: clamp(2.5rem, 7vh, 4rem);
+  margin-top: clamp(3.25rem, 8vh, 4.75rem);
   display: flex;
   flex-direction: column;
   gap: 0.55rem;
@@ -140,9 +140,9 @@ defineProps({
 
 @media (max-width: 640px) {
   .hero__comb {
-    top: -3vh;
-    right: -34vw;
-    width: clamp(220px, 60vw, 380px);
+    top: -2vh;
+    right: -33vw;
+    width: clamp(150px, 40vw, 250px);
     mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 85%);
     -webkit-mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 85%);
   }
@@ -151,14 +151,14 @@ defineProps({
     max-width: none;
     text-align: center;
     align-items: center;
-    padding-top: clamp(7rem, 20vh, 9rem);
+    padding-top: clamp(5.5rem, 17vh, 7.25rem);
   }
 }
 
 @media (max-width: 360px) {
   .hero__comb {
-    right: -38vw;
-    width: clamp(200px, 62vw, 300px);
+    right: -34vw;
+    width: clamp(140px, 44vw, 200px);
   }
 }
 </style>
