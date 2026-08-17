@@ -1,5 +1,6 @@
 <script setup>
 import { computed, reactive, ref, nextTick } from "vue";
+import PeignePick from "./PeignePick.vue";
 
 const TOTAL_STEPS = 5;
 const MAX_WORDS = 300;
@@ -196,11 +197,14 @@ async function submit() {
 
 <template>
   <section id="invitation" class="invitation">
+    <div class="invitation__comb" aria-hidden="true">
+      <PeignePick tone="light" />
+    </div>
     <div class="container invitation__inner">
       <div class="invitation__intro" v-reveal>
         <p class="eyebrow invitation__eyebrow">Request an Invitation</p>
         <h2 class="invitation__headline">
-          THE SALON is an invitation-only gathering.
+          THE SALON by Bluemind Foundation is an invitation-only gathering.
         </h2>
         <p class="invitation__lede">
           Attendance is intentionally limited to 45 guests. If you believe you
@@ -215,9 +219,9 @@ async function submit() {
             <p class="eyebrow">Request Received</p>
             <h3>Thank you.</h3>
             <p>
-              We've received your request to join THE SALON. Given our
-              intentionally limited capacity, we review every request
-              personally and will be in touch.
+              We've received your request to join THE SALON by Bluemind
+              Foundation. Given our intentionally limited capacity, we review
+              every request personally and will be in touch.
             </p>
           </div>
 
@@ -391,12 +395,30 @@ async function submit() {
 
 <style scoped>
 .invitation {
+  position: relative;
   background: var(--navy);
   color: var(--white);
   padding: clamp(4.5rem, 12vh, 7rem) 0 clamp(5rem, 12vh, 8rem);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.invitation__comb {
+  display: none;
+  position: absolute;
+  top: 6%;
+  right: 0;
+  height: 88%;
+  width: auto;
+  aspect-ratio: 139.07036 / 420.37173;
+  opacity: 0.16;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .invitation__inner {
+  position: relative;
+  z-index: 1;
   display: grid;
   gap: clamp(2.5rem, 6vw, 3.5rem);
 }
@@ -410,7 +432,7 @@ async function submit() {
   font-family: var(--font-display);
   font-size: clamp(1.7rem, 4.4vw, 2.6rem);
   line-height: 1.15;
-  max-width: 18ch;
+  max-width: 20ch;
 }
 
 .invitation__lede {
@@ -423,12 +445,32 @@ async function submit() {
 
 /* Card */
 .card {
-  max-width: 640px;
+  width: 100%;
+  max-width: 760px;
   background: var(--bone);
   color: var(--navy);
-  border-radius: 26px;
+  border-radius: 28px;
   box-shadow: 0 40px 80px -32px rgba(3, 6, 18, 0.55), 0 1px 0 rgba(255, 255, 255, 0.04) inset;
   overflow: hidden;
+}
+
+@media (min-width: 1000px) {
+  .invitation__inner {
+    grid-template-columns: minmax(280px, 380px) 1fr;
+    align-items: start;
+    gap: clamp(2.5rem, 5vw, 4.5rem);
+  }
+
+  .invitation__intro {
+    position: sticky;
+    top: clamp(2rem, 6vh, 3.5rem);
+  }
+}
+
+@media (min-width: 1440px) {
+  .invitation__comb {
+    display: block;
+  }
 }
 
 .card__body {
@@ -437,7 +479,7 @@ async function submit() {
 }
 
 .card__head {
-  padding: clamp(1.5rem, 4vw, 2.25rem) clamp(1.5rem, 4vw, 2.5rem) 0;
+  padding: clamp(1.75rem, 4vw, 2.5rem) clamp(1.75rem, 4.5vw, 3rem) 0;
 }
 
 .progress-track {
@@ -513,14 +555,14 @@ async function submit() {
 }
 
 .step__scroll {
-  padding: clamp(1.75rem, 5vh, 2.5rem) clamp(1.5rem, 4vw, 2.5rem) clamp(1.25rem, 3vh, 1.75rem);
+  padding: clamp(2rem, 5vh, 2.75rem) clamp(1.75rem, 4.5vw, 3rem) clamp(1.5rem, 3vh, 2rem);
 }
 
 .step__label {
   font-family: var(--font-display);
-  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  font-size: clamp(1.4rem, 3vw, 1.85rem);
   line-height: 1.2;
-  margin-bottom: clamp(1.5rem, 4vh, 2rem);
+  margin-bottom: clamp(1.75rem, 4vh, 2.25rem);
 }
 
 .step__helper {
@@ -532,7 +574,7 @@ async function submit() {
 .step__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.1rem 1rem;
+  gap: 1.35rem 1.25rem;
 }
 
 .step__single {
@@ -563,8 +605,8 @@ async function submit() {
   border: 1.5px solid transparent;
   background: rgba(13, 21, 51, 0.045);
   border-radius: 14px;
-  padding: 0.9rem 1rem;
-  font-size: 1rem;
+  padding: 1rem 1.15rem;
+  font-size: 1.02rem;
   color: var(--navy);
   transition: border-color 0.25s var(--ease), background-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
 }
@@ -677,8 +719,8 @@ async function submit() {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1.1rem clamp(1.5rem, 4vw, 2.5rem);
-  padding-bottom: calc(1.1rem + env(safe-area-inset-bottom, 0px));
+  padding: 1.25rem clamp(1.75rem, 4.5vw, 3rem);
+  padding-bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
   background: var(--bone);
   border-top: 1px solid var(--line-dark);
 }

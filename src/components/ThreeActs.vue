@@ -6,6 +6,7 @@ const acts = [
     title: "Trust as Health Infrastructure.",
     body: "First public presentation of the Trust Study findings.",
     align: "left",
+    tone: "deep",
   },
   {
     numeral: "II",
@@ -13,6 +14,7 @@ const acts = [
     title: "What can we build from trust?",
     body: "A conversation exploring what trust makes possible across communities, institutions and systems.",
     align: "right",
+    tone: "light",
   },
   {
     numeral: "III",
@@ -20,6 +22,7 @@ const acts = [
     title: "A Celebration of Black Cultures of Care.",
     body: "Care. Culture. Connection.",
     align: "left",
+    tone: "immersive",
   },
 ];
 </script>
@@ -32,7 +35,7 @@ const acts = [
       v-for="act in acts"
       :key="act.numeral"
       class="act"
-      :class="`act--${act.align}`"
+      :class="[`act--${act.align}`, `act--${act.tone}`]"
     >
       <span class="act__numeral" aria-hidden="true">{{ act.numeral }}</span>
       <div class="container act__row">
@@ -48,7 +51,7 @@ const acts = [
 
 <style scoped>
 .acts {
-  padding: clamp(3rem, 8vh, 5rem) 0 clamp(2rem, 6vh, 4rem);
+  padding: clamp(3rem, 8vh, 5rem) 0 0;
 }
 
 .acts__eyebrow {
@@ -61,8 +64,23 @@ const acts = [
   min-height: 62vh;
   display: flex;
   align-items: center;
-  border-top: 1px solid var(--line);
   overflow: hidden;
+  transition: background-color 0.4s var(--ease);
+}
+
+.act--deep {
+  background: var(--navy-deep);
+}
+
+.act--light {
+  background: var(--bone);
+  color: var(--navy);
+}
+
+.act--immersive {
+  background:
+    radial-gradient(120% 140% at 50% 100%, rgba(216, 141, 99, 0.1), transparent 60%),
+    var(--navy);
 }
 
 .act__numeral {
@@ -73,11 +91,20 @@ const acts = [
   font-family: var(--font-display);
   font-size: clamp(14rem, 42vw, 26rem);
   line-height: 1;
-  color: var(--white);
+  color: currentColor;
   opacity: 0.035;
   pointer-events: none;
   user-select: none;
   z-index: 0;
+}
+
+.act--light .act__numeral {
+  opacity: 0.05;
+}
+
+.act--immersive .act__numeral {
+  opacity: 0.05;
+  color: var(--terracotta);
 }
 
 .act__row {
@@ -109,6 +136,14 @@ const acts = [
   margin-bottom: 1.1rem;
 }
 
+.act--light .act__label {
+  color: var(--muted-on-bone);
+}
+
+.act--immersive .act__label {
+  color: var(--terracotta);
+}
+
 .act__title {
   font-family: var(--font-display);
   font-size: clamp(1.7rem, 4.4vw, 3rem);
@@ -122,6 +157,10 @@ const acts = [
   line-height: 1.55;
   color: var(--muted-on-navy);
   max-width: 46ch;
+}
+
+.act--light .act__body {
+  color: var(--muted-on-bone);
 }
 
 .act--right .act__body {

@@ -1,7 +1,6 @@
 <script setup>
 import { nextTick, ref } from "vue";
 import TheHero from "./components/TheHero.vue";
-import TheIdea from "./components/TheIdea.vue";
 import ThreeActs from "./components/ThreeActs.vue";
 import InvitationForm from "./components/InvitationForm.vue";
 import StickyCta from "./components/StickyCta.vue";
@@ -22,7 +21,6 @@ async function scrollToInvitation() {
     <StickyCta :on-request-invitation="scrollToInvitation" />
     <main>
       <TheHero :on-request-invitation="scrollToInvitation" />
-      <TheIdea />
       <ThreeActs />
       <InvitationForm />
     </main>

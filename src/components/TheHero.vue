@@ -138,6 +138,8 @@ defineProps({
 
 .hero__cta {
   margin-top: clamp(2.25rem, 6vh, 3.25rem);
+  padding: clamp(1.05rem, 2.4vw, 1.4rem) clamp(2rem, 4vw, 2.75rem);
+  font-size: clamp(0.8rem, 1vw, 0.9rem);
 }
 
 .hero__scroll {

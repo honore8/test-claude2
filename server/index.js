@@ -6,6 +6,8 @@ import { randomUUID, timingSafeEqual } from "node:crypto";
 import { existsSync } from "node:fs";
 import fs from "node:fs/promises";
 import ExcelJS from "exceljs";
+import { buildSaveTheDateIcs } from "./lib/ics.js";
+import { sendConfirmationEmail } from "./lib/email.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_FILE = path.join(__dirname, "data", "submissions.json");
@@ -111,7 +113,14 @@ app.post("/api/invitations", async (req, res) => {
     res.status(201).json({ ok: true });
   } catch (err) {
     console.error("[server] failed to save submission", err);
-    res.status(500).json({ error: "Could not save your request. Please try again." });
+    return res.status(500).json({ error: "Could not save your request. Please try again." });
+  }
+
+  try {
+    const ics = buildSaveTheDateIcs({ uid: `${entry.id}@thesalon.invalid`, attendeeName: entry.firstName });
+    await sendConfirmationEmail({ to: entry.email, icsContent: ics });
+  } catch (err) {
+    console.error("[server] failed to send confirmation email", err);
   }
 });
 
