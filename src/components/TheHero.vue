@@ -56,7 +56,7 @@ defineProps({
   right: 0;
   height: var(--comb-h);
   width: auto;
-  aspect-ratio: 139.07036 / 420.37173;
+  aspect-ratio: 152.08364 / 526.43707;
   z-index: 0;
   pointer-events: none;
 }
@@ -80,7 +80,7 @@ defineProps({
 
 .hero__title {
   font-family: var(--font-wordmark);
-  font-weight: 900;
+  font-weight: 700;
   font-size: clamp(3.6rem, 9.5vw, 7rem);
   line-height: 0.9;
   letter-spacing: -0.01em;

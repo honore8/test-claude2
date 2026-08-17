@@ -427,7 +427,7 @@ async function submit() {
   right: 0;
   height: 88%;
   width: auto;
-  aspect-ratio: 139.07036 / 420.37173;
+  aspect-ratio: 152.08364 / 526.43707;
   opacity: 0.16;
   z-index: 0;
   pointer-events: none;

@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Lapidary 333";
+  src: url("/fonts/Lapidary333-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --navy: #0d1533;
   --navy-deep: #080d21;
@@ -11,7 +19,7 @@
 
   --font-display: "Archivo Black", "Helvetica Neue", Arial, sans-serif;
   --font-body: "Poppins", "Helvetica Neue", Arial, sans-serif;
-  --font-wordmark: "Fraunces", "Georgia", serif;
+  --font-wordmark: "Lapidary 333", "Fraunces", "Georgia", serif;
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --container: 1180px;
