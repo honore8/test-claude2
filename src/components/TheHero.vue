@@ -43,7 +43,7 @@ defineProps({
 
 <style scoped>
 .hero {
-  --comb-h: clamp(560px, 92vh, 980px);
+  --comb-h: 100svh;
   position: relative;
   min-height: 100svh;
   overflow: hidden;
@@ -175,19 +175,8 @@ defineProps({
   }
 }
 
-@media (max-width: 1160px) {
-  .hero {
-    --comb-h: clamp(393px, 60.45vw, 695px);
-  }
-
-  .hero__comb {
-    top: 0;
-    right: 0;
-    height: auto;
-    width: clamp(130px, 20vw, 230px);
-  }
-}
-
+/* Below 640px the full-height comb would overlap the hero text, so it
+   falls back to a narrower, width-capped treatment instead. */
 @media (max-width: 640px) {
   .hero {
     --comb-h: clamp(242px, 60.45vw, 423px);
