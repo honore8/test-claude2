@@ -4,6 +4,7 @@ import PeignePick from "./PeignePick.vue";
 
 const TOTAL_STEPS = 5;
 const MAX_WORDS = 300;
+const DONATION_URL = "https://www.bluemindfoundation.org/donate#ready-to-make-donation";
 
 const STEP_META = [
   { key: "who", title: "Tell us who you are" },
@@ -353,6 +354,22 @@ async function submit() {
                       <input class="field__input" v-model.trim="form.contributionOther" type="text" />
                     </label>
 
+                    <div v-if="form.contributions.includes('Support THE SALON financially')" class="donation-note">
+                      <p>
+                        Financial contributions help make THE SALON possible and
+                        support Bluemind Foundation's broader mission. You're welcome
+                        to make a donation now — it's entirely separate from this
+                        request, which you can still submit either way.
+                      </p>
+                      <a
+                        class="donation-note__link"
+                        :href="DONATION_URL"
+                        target="_blank"
+                        rel="noopener"
+                        >Make a donation to Bluemind Foundation ↗</a
+                      >
+                    </div>
+
                     <label class="consent">
                       <input v-model="form.consent" type="checkbox" />
                       <span>
@@ -683,6 +700,33 @@ async function submit() {
 
 .chip:has(input:focus-visible) {
   box-shadow: 0 0 0 3px rgba(13, 21, 51, 0.18);
+}
+
+.donation-note {
+  margin-top: 1.25rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: 14px;
+  background: rgba(216, 141, 99, 0.1);
+  border: 1px solid rgba(216, 141, 99, 0.3);
+}
+
+.donation-note p {
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--muted-on-bone);
+}
+
+.donation-note__link {
+  display: inline-flex;
+  margin-top: 0.7rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--navy);
+  text-underline-offset: 0.2em;
+}
+
+.donation-note__link:hover {
+  color: var(--terracotta);
 }
 
 .consent {
