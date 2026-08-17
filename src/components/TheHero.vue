@@ -16,7 +16,7 @@ defineProps({
     </div>
 
     <div class="hero__content">
-      <h1 class="hero__title">THE SALON</h1>
+      <h1 class="hero__title"><span>THE</span><span>SALON</span></h1>
       <p class="hero__signature">
         <span class="hero__signature-light">Convened by</span>
         <span class="hero__signature-bold">Bluemind Foundation</span>
@@ -84,6 +84,10 @@ defineProps({
   font-size: clamp(3.6rem, 9.5vw, 7rem);
   line-height: 0.9;
   letter-spacing: -0.01em;
+}
+
+.hero__title span {
+  display: block;
 }
 
 .hero__signature {
