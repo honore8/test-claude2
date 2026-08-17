@@ -1,5 +1,4 @@
-// Provisional "Save the Date" calendar invite for THE SALON, built and
-// downloaded entirely client-side — no server involved.
+// Provisional "Save the Date" calendar invite for THE SALON.
 // STATUS:TENTATIVE so calendar apps show it as pending, not confirmed.
 
 const VTIMEZONE_NEW_YORK = `BEGIN:VTIMEZONE
@@ -22,6 +21,8 @@ END:STANDARD
 END:VTIMEZONE`;
 
 function foldLine(line) {
+  // RFC 5545 lines should be folded at 75 octets; our lines are short
+  // enough in practice, but fold defensively for very long descriptions.
   if (line.length <= 75) return line;
   const chunks = [];
   let rest = line;
@@ -41,12 +42,7 @@ function escapeText(value) {
     .replace(/\n/g, "\\n");
 }
 
-function uid() {
-  const random = (crypto.randomUUID && crypto.randomUUID()) || `${Date.now()}-${Math.random()}`;
-  return `${random}@thesalon.invalid`;
-}
-
-export function buildSaveTheDateIcs({ attendeeName } = {}) {
+export function buildSaveTheDateIcs({ uid, attendeeName }) {
   const dtStamp = new Date()
     .toISOString()
     .replace(/[-:]/g, "")
@@ -67,7 +63,7 @@ export function buildSaveTheDateIcs({ attendeeName } = {}) {
     "METHOD:PUBLISH",
     VTIMEZONE_NEW_YORK,
     "BEGIN:VEVENT",
-    `UID:${uid()}`,
+    `UID:${uid}`,
     `DTSTAMP:${dtStamp}`,
     "DTSTART;TZID=America/New_York:20260917T160000",
     "DTEND;TZID=America/New_York:20260917T200000",
@@ -81,17 +77,4 @@ export function buildSaveTheDateIcs({ attendeeName } = {}) {
   ];
 
   return lines.join("\r\n") + "\r\n";
-}
-
-export function downloadSaveTheDateIcs(attendeeName) {
-  const ics = buildSaveTheDateIcs({ attendeeName });
-  const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = "the-salon-save-the-date.ics";
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
-  URL.revokeObjectURL(url);
 }

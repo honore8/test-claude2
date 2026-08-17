@@ -1,8 +1,6 @@
 <script setup>
 import { computed, reactive, ref, nextTick } from "vue";
 import PeignePick from "./PeignePick.vue";
-import { sendInvitationEmails } from "../lib/email.js";
-import { downloadSaveTheDateIcs } from "../lib/ics.js";
 
 const TOTAL_STEPS = 5;
 const MAX_WORDS = 300;
@@ -180,20 +178,21 @@ async function submit() {
   submitting.value = true;
   submitError.value = "";
   try {
-    await sendInvitationEmails({ ...form });
+    const response = await fetch("/api/invitations", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...form }),
+    });
+    if (!response.ok) {
+      const data = await response.json().catch(() => ({}));
+      throw new Error(data.error || "Something went wrong. Please try again.");
+    }
     submitted.value = true;
   } catch (err) {
-    submitError.value =
-      err.message === "Email sending is not configured yet."
-        ? "Requests can't be sent yet — email isn't configured. Please try again shortly."
-        : "Something went wrong sending your request. Please try again.";
+    submitError.value = err.message || "Something went wrong. Please try again.";
   } finally {
     submitting.value = false;
   }
-}
-
-function addToCalendar() {
-  downloadSaveTheDateIcs(form.firstName);
 }
 </script>
 
@@ -220,16 +219,10 @@ function addToCalendar() {
             <div class="card__done-mark" aria-hidden="true">✓</div>
             <p class="eyebrow">Request Received</p>
             <h3>Thank you.</h3>
-            <p class="card__done-message">
+            <p>
               We've received your request to join THE SALON by Bluemind
               Foundation. Given our intentionally limited capacity, we review
               every request personally and will be in touch.
-            </p>
-            <button type="button" class="card__done-calendar" @click="addToCalendar">
-              Save the date (Sept 17, 2026) ↓
-            </button>
-            <p class="card__done-calendar-note">
-              A provisional calendar hold — your invitation is still pending confirmation.
             </p>
           </div>
 
@@ -856,42 +849,11 @@ function addToCalendar() {
   margin: 1rem 0 1.25rem;
 }
 
-.card__done-message {
+.card__done p:last-child {
   color: var(--muted-on-bone);
   max-width: 42ch;
   line-height: 1.6;
   margin-inline: auto;
-}
-
-.card__done-calendar {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5em;
-  margin-top: clamp(1.75rem, 4vh, 2.25rem);
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 0.9rem 1.5rem;
-  border-radius: 999px;
-  border: 1.5px solid var(--line-dark);
-  background: transparent;
-  color: var(--navy);
-  cursor: pointer;
-  transition: background-color 0.25s var(--ease), border-color 0.25s var(--ease);
-}
-
-.card__done-calendar:hover {
-  background: rgba(13, 21, 51, 0.045);
-  border-color: var(--navy);
-}
-
-.card__done-calendar-note {
-  margin-top: 0.85rem;
-  font-size: 0.76rem;
-  color: var(--muted-on-bone);
-  opacity: 0.85;
 }
 
 /* Step slide transitions */

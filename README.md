@@ -1,15 +1,12 @@
 # THE SALON — Convened by Bluemind Foundation
 
-Landing page for THE SALON. A single, fully static Vue 3 + Vite app — no
-backend, no server process, no environment variables required to run it.
-Form submissions are sent as email, entirely from the browser, via EmailJS.
+Landing page V2, built with Vue 3 + Vite, with a small Express backend for the
+invitation form and a password-protected requests dashboard.
 
 ## Stack
 
-- Vue 3 (`<script setup>`) + Vite — the whole app, `npm run build` produces
-  a static `dist/` you can host anywhere (Netlify, Vercel, GitHub Pages, S3, ...)
-- [EmailJS](https://www.emailjs.com) — sends the guest confirmation email and
-  a team-notification email directly from the browser, no server involved
+- Vue 3 (`<script setup>`) + Vite — frontend
+- Express — backend (saves invitation requests, serves the dashboard API)
 - No UI framework — bespoke, minimal CSS with design tokens in `src/style.css`
 - Self-hosted fonts via `@fontsource/*` (Archivo Black, Fraunces, Poppins)
 
@@ -18,71 +15,70 @@ Form submissions are sent as email, entirely from the browser, via EmailJS.
 - `src/components/TheHero.vue` — hero screen (title, date/location, CTA)
 - `src/components/ThreeActs.vue` — Act I / II / III
 - `src/components/InvitationForm.vue` — multi-step "Request an Invitation" form
+- `src/components/DashboardView.vue` — password-protected requests dashboard (`/dashboard`)
 - `src/components/StickyCta.vue` — discreet sticky CTA
 - `src/components/TheFooter.vue` — footer
 - `src/components/PeignePick.vue` — the peigne artwork
 - `src/directives/reveal.js` — subtle scroll-reveal directive (`v-reveal`)
-- `src/lib/email.js` — EmailJS config + sends the confirmation/notification emails
-- `src/lib/ics.js` — builds the provisional "Save the Date" `.ics` file (downloaded
-  client-side from the thank-you screen, not emailed as an attachment)
+- `server/index.js` — Express API (invitation submissions + dashboard)
+- `server/lib/ics.js` — builds the provisional "Save the Date" `.ics` file
+- `server/lib/email.js` — sends the automated confirmation email via Resend
 
 ## Setup
 
 ```bash
 npm install
+cp .env.example .env   # then set a real DASHBOARD_PASSWORD
 ```
-
-Then configure EmailJS (see below) by editing `src/lib/email.js` directly —
-there's no `.env` file; the whole app is one static build.
 
 ## Develop
 
+Runs the Vite dev server and the API together (Vite proxies `/api` to the
+API server):
+
 ```bash
-npm run dev
+npm run dev:full
 ```
 
-## Build & deploy
+Or run them separately in two terminals if you prefer:
+
+```bash
+npm run server   # API on PORT (default 3001)
+npm run dev      # Vite dev server, proxies /api to the server above
+```
+
+## Build & run in production
 
 ```bash
 npm run build
+npm start
 ```
 
-This produces a static `dist/` folder — upload it to any static host. There
-is nothing to run on a server; the site works identically wherever it's hosted.
+`npm start` runs the Express server, which serves the built frontend
+(`dist/`) and the API from a single process/port.
 
-## Sending invitation requests (EmailJS)
+## Invitation data & the dashboard
 
-Because there's no backend, submitting the form sends two emails directly
-from the visitor's browser via EmailJS:
+- Submissions are appended to `server/data/submissions.json` (git-ignored —
+  never commit real requests). The file and its parent directory are created
+  automatically on first submission.
+- Visit `/dashboard` to view requests and download them as an `.xlsx` file.
+  It's protected by `DASHBOARD_PASSWORD` from your `.env` — there's no
+  dashboard access without it set.
 
-1. A confirmation email to the guest (subject "Your request to join THE
-   SALON by Bluemind Foundation 💙")
-2. A notification email to your team's inbox with every submitted field —
-   this is how you'll actually see and manage requests, since there's no
-   database or dashboard.
+## Automated confirmation email
 
-The guest's thank-you screen also offers a "Save the date" button that
-downloads a provisional, TENTATIVE `.ics` calendar file (Sept 17, 2026,
-4–8pm New York time) directly in the browser.
+Each submitted request triggers a confirmation email (subject "Your request
+to join THE SALON by Bluemind Foundation 💙") with a provisional, TENTATIVE
+`.ics` calendar attachment reserving September 17, 2026, 4–8pm New York time
+— clearly labeled as pending confirmation, not a confirmed invitation.
 
-**One-time setup**, in `src/lib/email.js`:
-
-1. Create a free account at [emailjs.com](https://www.emailjs.com) and
-   connect an email provider (Gmail, Outlook, SMTP, ...) as an "Email Service".
-2. Create two "Email Templates" in the EmailJS dashboard:
-   - a **guest confirmation** template, sending to `{{to_email}}`, using
-     `CONFIRMATION_SUBJECT` / `CONFIRMATION_BODY` from `email.js` as its content
-   - a **team notification** template, sending to your own inbox, listing
-     the submitted fields (the template params are built in
-     `buildTemplateParams()` in `email.js` — e.g. `{{first_name}}`,
-     `{{email}}`, `{{about_you}}`, `{{contributions}}`, ...)
-3. Copy your Service ID, both Template IDs, and your Public Key (found under
-   Account > General) into `EMAILJS_CONFIG` at the top of `src/lib/email.js`,
-   along with the inbox address that should receive notifications.
-
-EmailJS's public key is designed to be shipped in client-side code — it's
-not a secret. Until `EMAILJS_CONFIG` is filled in with real values, the form
-shows a clear error instead of silently failing.
+Sending is handled by [Resend](https://resend.com) and is entirely optional:
+set `RESEND_API_KEY` and `RESEND_FROM_EMAIL` in your `.env` to enable it (see
+`.env.example`). If they're not set, submissions still work normally — the
+email step is just skipped, exactly like the dashboard is skipped without
+`DASHBOARD_PASSWORD`. Resend requires verifying a sending domain before
+`RESEND_FROM_EMAIL` can send from an address on it.
 
 ## Notes
 
