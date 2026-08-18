@@ -199,16 +199,15 @@ async function submit() {
   <section id="invitation" class="invitation">
     <div class="container invitation__inner">
       <div class="invitation__intro" v-reveal>
-        <p class="eyebrow invitation__eyebrow">Request an Invitation</p>
         <h2 class="invitation__headline">
           <span class="invitation__wordmark"><span>THE</span><span>SALON</span></span>
-          <span class="invitation__by">By Bluemind Foundation</span>
-          <span class="invitation__gathering">Is an invitation-only gathering.</span>
+          <span class="invitation__by">Convened by Bluemind Foundation</span>
         </h2>
         <p class="invitation__lede">
           Attendance is intentionally limited to 45 guests. If you believe you
           should be in the room, we'd like to hear from you.
         </p>
+        <p class="invitation__join">Join The Salon</p>
       </div>
 
       <div class="card" v-reveal>
@@ -394,7 +393,7 @@ async function submit() {
                     @click="goNext"
                   >
                     <span v-if="submitting">Sending…</span>
-                    <span v-else-if="currentStep === TOTAL_STEPS">Request an Invitation</span>
+                    <span v-else-if="currentStep === TOTAL_STEPS">Join The Salon</span>
                     <span v-else>Continue</span>
                     <span v-if="!submitting" class="step__next-arrow" aria-hidden="true">→</span>
                   </button>
@@ -425,11 +424,6 @@ async function submit() {
   gap: clamp(2.5rem, 6vw, 3.5rem);
 }
 
-.invitation__eyebrow {
-  color: var(--muted-on-navy);
-  margin-bottom: 1.25rem;
-}
-
 .invitation__headline {
   display: block;
   max-width: 20ch;
@@ -457,26 +451,25 @@ async function submit() {
   color: var(--muted-on-navy);
 }
 
-.invitation__gathering {
-  display: block;
-  margin-top: 0.85rem;
-  font-family: var(--font-display);
-  font-size: clamp(1.7rem, 4.4vw, 2.6rem);
-  line-height: 1.15;
-}
-
 .invitation__lede {
-  margin-top: 1.25rem;
+  margin-top: 1.5rem;
   font-size: 1.02rem;
   line-height: 1.6;
   color: var(--muted-on-navy);
   max-width: 46ch;
 }
 
+.invitation__join {
+  margin-top: 1.5rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.4vw, 2rem);
+  letter-spacing: -0.01em;
+}
+
 /* Card */
 .card {
   width: 100%;
-  max-width: 760px;
+  max-width: 940px;
   background: var(--bone);
   color: var(--navy);
   border-radius: 28px;
@@ -486,7 +479,7 @@ async function submit() {
 
 @media (min-width: 1000px) {
   .invitation__inner {
-    grid-template-columns: minmax(280px, 380px) 1fr;
+    grid-template-columns: minmax(260px, 320px) 1fr;
     align-items: start;
     gap: clamp(2.5rem, 5vw, 4.5rem);
   }
@@ -584,7 +577,7 @@ async function submit() {
 
 .step__label {
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 3vw, 1.85rem);
+  font-size: clamp(1.5rem, 3.2vw, 2.05rem);
   line-height: 1.2;
   margin-bottom: clamp(1.75rem, 4vh, 2.25rem);
 }
@@ -633,8 +626,8 @@ async function submit() {
   border: 1.5px solid transparent;
   background: rgba(13, 21, 51, 0.045);
   border-radius: 14px;
-  padding: 1rem 1.15rem;
-  font-size: 1.02rem;
+  padding: 1.05rem 1.25rem;
+  font-size: 1.08rem;
   color: var(--navy);
   transition: border-color 0.25s var(--ease), background-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
 }

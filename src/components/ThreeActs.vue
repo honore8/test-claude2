@@ -2,7 +2,7 @@
 const acts = [
   {
     numeral: "1",
-    label: "Act I — The Evidence",
+    label: "The Evidence",
     title: "Trust as Health Infrastructure.",
     body: "First public presentation of the Trust Study findings.",
     align: "left",
@@ -10,15 +10,15 @@ const acts = [
   },
   {
     numeral: "2",
-    label: "Act II — The Conversation",
-    title: "What can we build from trust?",
+    label: "The Conversation",
+    title: "How do we build systems people already trust?",
     body: "A conversation exploring what trust makes possible across communities, institutions and systems.",
     align: "right",
     tone: "light",
   },
   {
     numeral: "3",
-    label: "Act III — La Clairière",
+    label: "La Clairière",
     title: "A Celebration of Black Cultures of Care.",
     body: "Care. Culture. Connection.",
     align: "left",
@@ -40,7 +40,10 @@ const acts = [
         <div class="act__copy" v-reveal>
           <p class="act__label">{{ act.label }}</p>
           <h3 class="act__title">{{ act.title }}</h3>
-          <p class="act__body">{{ act.body }}</p>
+          <div class="act__conclude">
+            <span class="act__bar" aria-hidden="true"></span>
+            <p class="act__body">{{ act.body }}</p>
+          </div>
         </div>
       </div>
     </article>
@@ -79,8 +82,8 @@ const acts = [
 .act__numeral {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  right: clamp(-3rem, -6vw, -5rem);
+  transform: translateY(-50%);
   font-family: var(--font-display);
   font-size: clamp(14rem, 42vw, 26rem);
   line-height: 1;
@@ -135,16 +138,33 @@ const acts = [
   letter-spacing: -0.01em;
 }
 
-.act__body {
+.act__conclude {
   margin-top: 1.25rem;
-  font-size: 1.02rem;
-  line-height: 1.55;
-  color: var(--muted-on-navy);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
   max-width: 46ch;
 }
 
-.act--light .act__body {
-  color: var(--muted-on-bone);
+.act--right .act__conclude {
+  margin-left: auto;
+  flex-direction: row-reverse;
+}
+
+.act__bar {
+  flex-shrink: 0;
+  align-self: stretch;
+  width: 2px;
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+  background: currentColor;
+  opacity: 0.4;
+}
+
+.act__body {
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: var(--muted-on-navy);
 }
 
 .act--deep .act__body,
@@ -152,8 +172,8 @@ const acts = [
   color: var(--ocre);
 }
 
-.act--right .act__body {
-  margin-left: auto;
+.act--light .act__body {
+  color: var(--terracotta);
 }
 
 @media (max-width: 640px) {
@@ -166,8 +186,9 @@ const acts = [
   .act--right .act__copy {
     text-align: left;
   }
-  .act--right .act__body {
+  .act--right .act__conclude {
     margin-left: 0;
+    flex-direction: row;
   }
 }
 </style>

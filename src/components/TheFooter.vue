@@ -33,10 +33,9 @@ defineProps({
       <div class="footer__right">
         <div class="footer__meta">
           <p>September 17, 2026 · New York</p>
-          <p>By invitation only</p>
         </div>
         <button type="button" class="footer__cta" @click="onRequestInvitation">
-          Request an Invitation
+          Join The Salon
         </button>
       </div>
     </div>

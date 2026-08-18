@@ -51,7 +51,7 @@ export function buildSaveTheDateIcs({ uid, attendeeName }) {
   const summary = "THE SALON by Bluemind Foundation - Save the Date / Invitation pending confirmation";
   const description = escapeText(
     `Dear ${attendeeName || "Friend of THE SALON"}, this calendar hold reserves September 17, 2026, ` +
-      "4:00-8:00 PM (New York time) for THE SALON by Bluemind Foundation. " +
+      "5:00-7:00 PM (New York time) at 409 West 45th Street, New York, NY 10036, for THE SALON by Bluemind Foundation. " +
       "This is a provisional save-the-date only; your invitation is still pending confirmation."
   );
 
@@ -65,13 +65,13 @@ export function buildSaveTheDateIcs({ uid, attendeeName }) {
     "BEGIN:VEVENT",
     `UID:${uid}`,
     `DTSTAMP:${dtStamp}`,
-    "DTSTART;TZID=America/New_York:20260917T160000",
-    "DTEND;TZID=America/New_York:20260917T200000",
+    "DTSTART;TZID=America/New_York:20260917T170000",
+    "DTEND;TZID=America/New_York:20260917T190000",
     "STATUS:TENTATIVE",
     "TRANSP:OPAQUE",
     foldLine(`SUMMARY:${escapeText(summary)}`),
     foldLine(`DESCRIPTION:${description}`),
-    "LOCATION:New York, NY",
+    "LOCATION:409 West 45th Street\\, New York\\, NY 10036",
     "END:VEVENT",
     "END:VCALENDAR",
   ];

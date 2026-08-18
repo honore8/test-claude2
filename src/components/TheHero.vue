@@ -72,36 +72,42 @@ function scrollToActs() {
           >Convened by Bluemind Foundation</text>
 
           <!-- meta divider bar -->
-          <path
-            d="m 29.022,159.205 h -0.924 v 27.347 h 0.924 z"
+          <rect
+            x="40"
+            y="461"
+            width="1.5"
+            height="82"
             fill="#ffffff"
-            transform="matrix(1.3333333,0,0,-1.3333333,0,710.62667)"
           />
 
-          <!-- date / location -->
+          <!-- date / time -->
           <text
             transform="matrix(1.3333333,0,0,1.3333333,44.425733,474.97173)"
             style="font-family: var(--font-body), sans-serif; font-weight: 500; font-size: 14.3506px; fill: var(--ocre)"
-          >September 17, 2026<tspan style="fill: #ffffff"> · </tspan><tspan style="fill: var(--ocre)">New York</tspan></text>
+          >September 17, 2026<tspan style="fill: #ffffff"> · </tspan><tspan style="fill: var(--ocre)">5-7 PM</tspan></text>
 
-          <!-- "By invitation only" -->
+          <!-- address -->
           <text
             transform="matrix(1.3333333,0,0,1.3333333,44.425733,497.93269)"
             style="font-family: var(--font-body), sans-serif; font-weight: 500; font-size: 14.3506px; fill: var(--muted-on-navy)"
-          >By invitation only</text>
+          >409 West 45th Street</text>
+          <text
+            transform="matrix(1.3333333,0,0,1.3333333,44.425733,520.89365)"
+            style="font-family: var(--font-body), sans-serif; font-weight: 500; font-size: 14.3506px; fill: var(--muted-on-navy)"
+          >New York · NY 10036</text>
 
           <!-- CTA + scroll link, embedded so they always keep the same proportion to the rest of the artwork -->
-          <foreignObject x="0" y="545" width="290" height="60">
+          <foreignObject x="0" y="568" width="290" height="60">
             <button
               xmlns="http://www.w3.org/1999/xhtml"
               class="hero__cta"
               @click="onRequestInvitation"
             >
-              Request an Invitation
+              Join The Salon
             </button>
           </foreignObject>
 
-          <foreignObject x="2" y="618" width="260" height="34">
+          <foreignObject x="2" y="641" width="260" height="34">
             <button
               xmlns="http://www.w3.org/1999/xhtml"
               class="hero__acts-link"
@@ -135,7 +141,6 @@ function scrollToActs() {
   min-height: 100svh;
   overflow: hidden;
   isolation: isolate;
-  border-bottom: 3px solid var(--ocre);
 }
 
 .sr-only {

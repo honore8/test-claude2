@@ -14,7 +14,7 @@ invitation form and a password-protected requests dashboard.
 
 - `src/components/TheHero.vue` — hero screen (title, date/location, CTA)
 - `src/components/ThreeActs.vue` — Act I / II / III
-- `src/components/InvitationForm.vue` — multi-step "Request an Invitation" form
+- `src/components/InvitationForm.vue` — multi-step "Join The Salon" registration form
 - `src/components/DashboardView.vue` — password-protected requests dashboard (`/dashboard`)
 - `src/components/StickyCta.vue` — discreet sticky CTA
 - `src/components/TheFooter.vue` — footer
@@ -70,8 +70,9 @@ npm start
 
 Each submitted request triggers a confirmation email (subject "Your request
 to join THE SALON by Bluemind Foundation 💙") with a provisional, TENTATIVE
-`.ics` calendar attachment reserving September 17, 2026, 4–8pm New York time
-— clearly labeled as pending confirmation, not a confirmed invitation.
+`.ics` calendar attachment reserving September 17, 2026, 5–7pm New York time
+at 409 West 45th Street, New York, NY 10036 — clearly labeled as pending
+confirmation, not a confirmed invitation.
 
 Sending is handled by [Resend](https://resend.com) and is entirely optional:
 set `RESEND_API_KEY` and `RESEND_FROM_EMAIL` in your `.env` to enable it (see
