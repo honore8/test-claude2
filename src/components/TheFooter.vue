@@ -23,6 +23,7 @@ import PeignePick from "./PeignePick.vue";
         </p>
       </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <div class="footer__meta">
         <p>New York · September 17, 2026</p>
         <p>By invitation only</p>
@@ -37,6 +38,11 @@ import PeignePick from "./PeignePick.vue";
           Request an Invitation
         </button>
 >>>>>>> parent of ed06f30 (Final content pass: venue/time, "Join The Salon" CTA, editorial Three Acts)
+=======
+      <div class="footer__meta">
+        <p>New York · September 17, 2026</p>
+        <p>By invitation only</p>
+>>>>>>> parent of 49f220e (Implement final PDF mockup: pill CTAs, Act labels, wordmark headline, footer CTA)
       </div>
     </div>
 

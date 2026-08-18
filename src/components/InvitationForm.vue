@@ -202,12 +202,16 @@ async function submit() {
         <p class="eyebrow invitation__eyebrow">Request an Invitation</p>
         <h2 class="invitation__headline">
 <<<<<<< HEAD
+<<<<<<< HEAD
           THE SALON by Bluemind Foundation is an invitation-only gathering.
 =======
           <span class="invitation__wordmark"><span>THE</span><span>SALON</span></span>
           <span class="invitation__by">By Bluemind Foundation</span>
           <span class="invitation__gathering">Is an invitation-only gathering.</span>
 >>>>>>> parent of ed06f30 (Final content pass: venue/time, "Join The Salon" CTA, editorial Three Acts)
+=======
+          THE SALON by Bluemind Foundation is an invitation-only gathering.
+>>>>>>> parent of 49f220e (Implement final PDF mockup: pill CTAs, Act labels, wordmark headline, footer CTA)
         </h2>
         <p class="invitation__lede">
           Attendance is intentionally limited to 45 guests. If you believe you
@@ -435,6 +439,7 @@ async function submit() {
 }
 
 .invitation__headline {
+<<<<<<< HEAD
   font-family: var(--font-display);
   font-size: clamp(1.7rem, 4.4vw, 2.6rem);
   line-height: 1.15;
@@ -468,9 +473,12 @@ async function submit() {
 .invitation__gathering {
   display: block;
   margin-top: 0.85rem;
+=======
+>>>>>>> parent of 49f220e (Implement final PDF mockup: pill CTAs, Act labels, wordmark headline, footer CTA)
   font-family: var(--font-display);
   font-size: clamp(1.7rem, 4.4vw, 2.6rem);
   line-height: 1.15;
+  max-width: 20ch;
 }
 
 >>>>>>> parent of ed06f30 (Final content pass: venue/time, "Join The Salon" CTA, editorial Three Acts)
