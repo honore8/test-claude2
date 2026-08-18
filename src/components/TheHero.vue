@@ -1,6 +1,4 @@
 <script setup>
-import PeignePick from "./PeignePick.vue";
-
 defineProps({
   onRequestInvitation: {
     type: Function,
@@ -11,28 +9,104 @@ defineProps({
 
 <template>
   <section class="hero">
-    <div class="hero__comb" aria-hidden="true">
-      <PeignePick tone="light" />
-    </div>
+    <h1 class="sr-only">THE SALON — Convened by Bluemind Foundation</h1>
 
-    <div class="hero__content">
-      <h1 class="hero__title"><span>THE</span><span>SALON</span></h1>
-      <p class="hero__signature">
-        <span class="hero__signature-light">Convened by</span>
-        <span class="hero__signature-bold">Bluemind Foundation</span>
-      </p>
+    <div class="hero__art">
+      <svg
+        viewBox="0 0 531.19733 702.06397"
+        preserveAspectRatio="xMinYMid meet"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <g transform="translate(-37.463994)">
+          <!-- "THE SALON" wordmark, drawn as vector letterforms -->
+          <path
+            d="m 0,0 c -4.962,0 -7.579,-1.636 -7.96,-5.18 h -0.873 v 8.178 h 0.873 c 0.218,-0.653 1.035,-0.98 2.508,-0.98 h 22.516 c 1.472,0 2.29,0.327 2.508,0.98 h 0.872 V -5.18 H 19.572 C 19.19,-1.636 16.573,0 11.612,0 h -2.29 v -23.553 c 0,-3.544 0.982,-5.125 4.089,-5.343 v -0.872 c -2.508,0.109 -5.07,0.164 -7.578,0.164 -2.562,0 -5.07,-0.055 -7.633,-0.164 v 0.872 c 3.108,0.218 4.089,1.799 4.089,5.343 L 2.289,0 Z"
+            fill="#ffffff"
+            transform="matrix(1.3333333,0,0,-1.3333333,49.895067,211.49507)"
+          />
+          <path
+            d="m 0,0 c 0,-3.544 0.98,-5.125 4.089,-5.343 v -0.872 c -2.508,0.109 -5.07,0.163 -7.633,0.163 -2.562,0 -5.07,-0.054 -7.633,-0.163 v 0.872 c 3.108,0.218 4.089,1.799 4.089,5.343 v 19.354 c 0,3.544 -0.981,5.125 -4.089,5.343 v 0.873 c 2.563,-0.109 5.071,-0.164 7.633,-0.164 2.563,0 5.125,0.055 7.633,0.164 V 24.697 C 0.98,24.479 0,22.898 0,19.354 v -8.559 h 15.974 v 8.559 c 0,3.544 -0.982,5.125 -4.089,5.343 v 0.873 c 2.562,-0.109 5.07,-0.164 7.633,-0.164 2.562,0 5.125,0.055 7.632,0.164 V 24.697 C 24.043,24.479 23.062,22.898 23.062,19.354 V 0 c 0,-3.544 0.981,-5.125 4.088,-5.343 v -0.872 c -2.507,0.109 -5.07,0.163 -7.632,0.163 -2.563,0 -5.071,-0.054 -7.633,-0.163 v 0.872 c 3.107,0.218 4.089,1.799 4.089,5.343 V 8.777 H 0 Z"
+            fill="#ffffff"
+            transform="matrix(1.3333333,0,0,-1.3333333,95.400267,242.89867)"
+          />
+          <path
+            d="m 0,0 h -0.872 c -0.709,3.489 -2.617,4.962 -6.324,4.962 h -5.616 V -7.796 h 4.689 c 3.38,0 5.179,1.309 5.343,3.817 h 0.872 V -13.63 H -2.78 c -0.545,2.672 -2.126,3.762 -5.18,3.762 h -4.852 v -8.668 c 0,-3.162 1.2,-4.308 4.961,-4.308 4.144,0 6.27,1.418 8.015,5.725 l 0.872,-0.109 -0.709,-7.632 c -3.707,0.054 -7.633,0.108 -11.667,0.108 -4.089,0 -8.287,-0.054 -12.648,-0.108 v 0.872 c 3.107,0.217 4.089,1.799 4.089,5.342 V 0.709 c 0,3.544 -0.982,5.125 -4.089,5.343 v 0.873 c 3.652,-0.055 7.468,-0.055 11.504,-0.055 3.979,0 8.177,0 12.484,0.055 z"
+            fill="#ffffff"
+            transform="matrix(1.3333333,0,0,-1.3333333,168.81693,218.038)"
+          />
+          <path
+            d="m 0,0 c -0.991,5.265 -6.026,9.079 -10.757,9.079 -4.426,0 -7.248,-2.594 -7.248,-6.027 0,-4.655 4.349,-6.638 11.063,-10.91 6.713,-4.349 10.91,-7.325 10.91,-14.115 0,-7.552 -6.18,-13.123 -15.183,-13.123 -4.425,0 -7.553,1.679 -9.613,1.679 -1.297,0 -2.06,-0.381 -2.288,-1.297 h -1.221 c 0.076,2.213 0.152,4.349 0.152,6.485 0,2.136 -0.076,4.349 -0.152,6.485 h 1.221 c 0.915,-6.79 5.416,-10.833 11.825,-10.833 4.73,0 8.087,2.898 8.087,6.637 0,4.425 -4.12,6.18 -10.758,10.605 -6.332,4.272 -10.223,7.248 -10.223,14.496 0,6.866 5.722,12.36 12.97,12.36 3.586,0 6.562,-1.374 8.851,-1.374 1.143,0 1.83,0.381 2.364,1.068 H 1.298 C 1.221,9.384 1.221,7.477 1.221,5.646 1.221,3.738 1.221,1.907 1.298,0 Z"
+            fill="#ffffff"
+            transform="matrix(1.3333333,0,0,-1.3333333,69.913333,281.70733)"
+          />
+          <path
+            d="M 0,0 -7.096,18.006 -13.81,0 Z m -18.692,-14.343 c 0,-1.297 1.068,-2.289 3.051,-2.747 v -1.221 c -2.059,0.153 -4.119,0.23 -6.179,0.23 -1.984,0 -3.967,-0.077 -5.875,-0.23 v 1.221 c 3.205,0.306 5.417,2.823 7.172,7.477 l 13.809,36.85 h 5.951 l 14.419,-36.85 c 1.831,-4.654 4.044,-7.171 7.248,-7.477 v -1.221 c -3.204,0.153 -6.408,0.23 -9.613,0.23 -3.204,0 -6.332,-0.077 -9.536,-0.23 v 1.221 c 1.983,0.458 3.052,1.45 3.052,2.747 0,1.449 -0.535,2.976 -1.221,4.73 l -2.441,6.18 h -16.099 l -2.442,-6.18 c -0.61,-1.602 -1.296,-3.128 -1.296,-4.73"
+            fill="#ffffff"
+            transform="matrix(1.3333333,0,0,-1.3333333,112.74013,302.66307)"
+          />
+          <path
+            d="M 0,0 C 5.188,0 9.461,3.128 11.979,8.926 L 13.123,8.621 11.902,-2.823 c -6.179,0.076 -12.131,0.152 -17.852,0.152 -5.723,0 -11.216,-0.076 -16.481,-0.152 v 1.22 c 4.35,0.306 5.723,2.518 5.723,7.477 v 27.085 c 0,4.959 -1.373,7.172 -5.723,7.477 v 1.22 c 3.586,-0.076 7.096,-0.076 10.682,-0.076 3.586,0 7.172,0 10.682,0.076 v -1.22 C -5.417,40.131 -6.79,37.918 -6.79,32.959 V 5.874 C -6.79,1.602 -5.111,0 0,0"
+            fill="#ffffff"
+            transform="matrix(1.3333333,0,0,-1.3333333,177.12947,323.3128)"
+          />
+          <path
+            d="m 0,0 c 8.545,0 13.275,7.095 13.275,20.828 0,13.733 -4.73,20.904 -13.275,20.904 -8.545,0 -13.199,-7.171 -13.199,-20.904 C -13.199,7.095 -8.545,0 0,0 m -23.804,20.828 c 0,13.962 9.613,23.27 23.88,23.27 14.267,0 23.804,-9.308 23.804,-23.27 0,-13.962 -9.537,-23.347 -23.804,-23.347 -14.267,0 -23.88,9.385 -23.88,23.347"
+            fill="#ffffff"
+            transform="matrix(1.3333333,0,0,-1.3333333,230.5344,325.14347)"
+          />
+          <path
+            d="m 0,0 h 1.297 v 36.24 c 0,4.959 1.373,7.172 5.723,7.477 v 1.221 c -2.366,-0.153 -4.731,-0.229 -7.096,-0.229 -2.442,0 -4.807,0.076 -7.172,0.229 v -1.221 c 4.349,-0.305 5.723,-2.518 5.723,-7.477 V 15.259 l -21.898,23.47 c -4.331,4.641 -10.395,7.277 -16.744,7.277 h -31.627 l 8.638,-2.289 c 2.517,-0.687 17.198,3.276 27.069,-4.922 V 9.155 c 0,-4.959 -1.373,-7.171 -5.722,-7.476 V 0.458 c 2.365,0.152 4.73,0.229 7.171,0.229 2.366,0 4.731,-0.077 7.096,-0.229 v 1.221 c -4.349,0.305 -5.722,2.517 -5.722,7.476 v 27.261"
+            fill="#ffffff"
+            transform="matrix(1.3333333,0,0,-1.3333333,324.83133,327.68773)"
+          />
 
-      <div class="hero__meta">
-        <span class="hero__meta-bar" aria-hidden="true"></span>
-        <div class="hero__meta-text">
-          <p class="hero__date">September 17, 2026 · New York</p>
-          <p class="hero__meta-sub">By invitation only</p>
-        </div>
-      </div>
+          <!-- "Convened by Bluemind Foundation" -->
+          <text
+            transform="matrix(1.3333333,0,0,1.3333333,37.4648,361.3428)"
+            style="font-family: var(--font-body), sans-serif; font-weight: 500; font-size: 11.908px; fill: #ffffff"
+          >Convened by Bluemind Foundation</text>
 
-      <button class="btn btn-primary-on-navy hero__cta" @click="onRequestInvitation">
-        Request an Invitation
-      </button>
+          <!-- meta divider bar -->
+          <path
+            d="m 29.022,159.205 h -0.924 v 27.347 h 0.924 z"
+            fill="#ffffff"
+            transform="matrix(1.3333333,0,0,-1.3333333,0,710.62667)"
+          />
+
+          <!-- date / location -->
+          <text
+            transform="matrix(1.3333333,0,0,1.3333333,44.425733,474.97173)"
+            style="font-family: var(--font-body), sans-serif; font-weight: 500; font-size: 14.3506px; fill: var(--ocre)"
+          >September 17, 2026<tspan style="fill: #ffffff"> · </tspan><tspan style="fill: var(--ocre)">New York</tspan></text>
+
+          <!-- "By invitation only" -->
+          <text
+            transform="matrix(1.3333333,0,0,1.3333333,44.425733,497.93269)"
+            style="font-family: var(--font-body), sans-serif; font-weight: 500; font-size: 14.3506px; fill: var(--muted-on-navy)"
+          >By invitation only</text>
+
+          <!-- CTA, embedded so it always keeps the same proportion to the rest of the artwork -->
+          <foreignObject x="0" y="545" width="290" height="72">
+            <button
+              xmlns="http://www.w3.org/1999/xhtml"
+              class="btn btn-primary-on-navy hero__cta"
+              @click="onRequestInvitation"
+            >
+              Request an Invitation
+            </button>
+          </foreignObject>
+
+          <!-- the peigne -->
+          <g aria-hidden="true">
+            <path
+              d="m 0,0 78.558,83.051 c 1.97,2.076 0.234,5.492 -2.608,5.131 C 0.092,78.757 -58.199,13.394 -56.896,-65.427 c 0.996,-59.223 35.968,-110.467 85.872,-135.204 -45.424,-5.28 -81.095,-42.452 -84.046,-88.547 l -0.223,10e-4 c 0.03,-0.897 0.061,-1.805 0.09,-2.708 -0.041,-1.154 -0.088,-2.308 -0.088,-3.473 v -2.488 h 0.286 c 3.949,-118.511 9.653,-277.301 11.369,-281.306 3.295,-7.696 11.472,-4.514 12.436,3.734 2.084,17.772 0.737,175.838 3.805,234.753 0.397,7.681 -0.134,17.184 9.957,17.856 9.714,0.646 13.017,-4.818 13.818,-13.357 1.155,-12.337 0.609,-26.027 1.006,-38.449 1.899,-59.809 6.215,-197.232 7.809,-203.332 1.161,-4.43 4.308,-6.818 9.064,-4.599 3.004,1.402 3.748,9.389 4.01,12.641 2.898,36.041 4.16,193.412 6.632,230.126 0.376,5.569 0.957,14.533 7.597,16.51 8.163,2.431 14.987,-1.063 16.143,-9.296 3.628,-25.788 5.797,-237.12 9.085,-246.098 1.884,-5.145 8.977,-6.435 11.238,-1.58 0.716,1.537 1.467,7.369 1.637,9.417 5.13,62.161 5.981,227.376 8.624,241.038 1.771,9.148 18.275,10.239 21.18,-0.574 1.311,-4.862 1.439,-18.176 1.644,-24.086 1.928,-55.726 4.72,-200.632 6.634,-216.371 0.382,-3.16 1.027,-10.325 4.003,-11.721 9.489,-4.442 9.842,7.335 10.296,13.5 5.74,78.289 3.912,157.08 7.674,235.539 1.106,8.971 6.328,12.082 15.548,10.587 5.513,-0.894 6.817,-7.767 7.221,-12.288 2.083,-23.448 4.726,-243.844 10.119,-247.153 8.333,-5.117 10.304,6.144 10.764,11.536 5.712,66.497 7.49,226.916 8.68,236.396 1.956,15.498 21.394,16.199 22.768,1.97 1.354,-13.938 -0.51,-172.691 3.777,-235.623 0.206,-2.948 1.205,-12.338 3.09,-13.967 6.859,-5.938 10.544,7.646 11.168,12.131 2.49,17.896 9.723,164.447 13.85,272.066 h 0.332 v 2.488 c 0,1.254 -0.047,2.498 -0.095,3.741 0.031,0.812 0.062,1.632 0.092,2.44 0,0 -0.084,-0.003 -0.218,-0.008 -2.781,43.498 -34.692,79.06 -76.448,87.373 51.639,24.534 87.159,77.398 86.757,138.603 -0.51,78.111 -59.37,142.412 -134.844,151.469 -2.842,0.346 -4.55,-3.076 -2.551,-5.146 L 190.322,0.397 c 3.281,-3.394 5.109,-7.922 5.137,-12.621 l 0.525,-79.415 c 0.064,-10.09 -8.029,-18.275 -18.091,-18.297 l -50.979,-0.106 -0.375,5.932 c 0.233,0.149 0.488,0.283 0.736,0.453 20.813,13.79 23.47,46.443 5.939,72.96"
+              fill="#ffffff"
+              transform="matrix(1.3333333,0,0,-1.3333333,441.23107,-76.144267)"
+            />
+          </g>
+        </g>
+      </svg>
     </div>
 
     <div class="hero__scroll" aria-hidden="true">
@@ -43,111 +117,48 @@ defineProps({
 
 <style scoped>
 .hero {
-  --comb-h: 100svh;
   position: relative;
   min-height: 100svh;
   overflow: hidden;
   isolation: isolate;
 }
 
-.hero__comb {
+.sr-only {
   position: absolute;
-  top: 0;
-  right: 0;
-  height: var(--comb-h);
-  width: auto;
-  aspect-ratio: 152.08364 / 526.43707;
-  z-index: 0;
-  pointer-events: none;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
-.hero__content {
+.hero__art {
   position: absolute;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  top: max(calc(var(--comb-h) / 2), 13rem);
-  transform: translateY(-50%);
-  z-index: 1;
-  width: 100%;
-  max-width: 640px;
-  padding: 0 clamp(1.25rem, 5vw, 3rem);
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  inset: 0;
+  padding: clamp(1.5rem, 5vh, 3.5rem) clamp(1.25rem, 5vw, 3rem);
 }
 
-.hero__title {
-  font-family: var(--font-wordmark);
-  font-weight: 700;
-  font-size: clamp(3.6rem, 9.5vw, 7rem);
-  line-height: 0.9;
-  letter-spacing: -0.01em;
-}
-
-.hero__title span {
+.hero__art svg {
   display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left center;
+  overflow: visible;
 }
 
-.hero__signature {
-  margin-top: clamp(0.9rem, 2vw, 1.3rem);
-  font-family: var(--font-body);
-  font-size: clamp(1rem, 2.2vw, 1.35rem);
-  font-weight: 400;
-  color: var(--white);
-}
-
-.hero__signature-light {
-  font-weight: 400;
-  margin-right: 0.32em;
-}
-
-.hero__signature-bold {
-  font-weight: 700;
-}
-
-.hero__meta {
-  margin-top: clamp(3.25rem, 8vh, 4.75rem);
-  display: flex;
-  align-items: stretch;
-  gap: 0.9rem;
-}
-
-.hero__meta-bar {
-  width: 3px;
-  flex-shrink: 0;
-  border-radius: 2px;
-  background: var(--white);
-  opacity: 0.5;
-}
-
-.hero__meta-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.4rem;
-  font-family: var(--font-body);
-  font-size: clamp(1.05rem, 2.4vw, 1.4rem);
-}
-
-.hero__date {
+.hero__art :deep(.hero__cta) {
+  width: 100%;
+  height: 100%;
+  font-size: 13px;
+  padding: 0 22px;
   color: var(--ocre);
 }
 
-.hero__meta-sub {
-  color: var(--muted-on-navy);
-  font-size: 0.92em;
-}
-
-.hero__cta {
-  margin-top: clamp(2.25rem, 6vh, 3.25rem);
-  padding: clamp(1.05rem, 2.4vw, 1.4rem) clamp(2rem, 4vw, 2.75rem);
-  font-size: clamp(0.8rem, 1vw, 0.9rem);
-  color: var(--ocre);
-}
-
-.hero__cta:hover {
+.hero__art :deep(.hero__cta:hover) {
   color: var(--ocre);
 }
 
@@ -177,30 +188,6 @@ defineProps({
   .hero__scroll-line {
     animation: none;
     opacity: 0.5;
-  }
-}
-
-/* Below 640px the full-height comb would overlap the hero text, so it
-   falls back to a narrower, width-capped treatment instead. */
-@media (max-width: 640px) {
-  .hero {
-    --comb-h: clamp(242px, 60.45vw, 423px);
-  }
-
-  .hero__comb {
-    top: 0;
-    right: 0;
-    width: clamp(80px, 20vw, 140px);
-  }
-}
-
-@media (max-width: 400px) {
-  .hero {
-    --comb-h: clamp(193px, 60.45vw, 302px);
-  }
-
-  .hero__comb {
-    width: clamp(64px, 20vw, 100px);
   }
 }
 </style>
