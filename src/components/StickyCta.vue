@@ -47,7 +47,7 @@ onUnmounted(() => {
       class="sticky-cta"
       @click="props.onRequestInvitation"
     >
-      Join The Salon
+      Request an Invitation
     </button>
   </Transition>
 </template>
