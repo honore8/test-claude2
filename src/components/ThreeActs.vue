@@ -2,7 +2,7 @@
 const acts = [
   {
     numeral: "1",
-    label: "Act I — The Evidence",
+    label: "Act 1",
     title: "Trust as Health Infrastructure.",
     body: "First public presentation of the Trust Study findings.",
     align: "left",
@@ -10,7 +10,7 @@ const acts = [
   },
   {
     numeral: "2",
-    label: "Act II — The Conversation",
+    label: "Act 2",
     title: "What can we build from trust?",
     body: "A conversation exploring what trust makes possible across communities, institutions and systems.",
     align: "right",
@@ -18,7 +18,7 @@ const acts = [
   },
   {
     numeral: "3",
-    label: "Act III — La Clairière",
+    label: "Act 3",
     title: "A Celebration of Black Cultures of Care.",
     body: "Care. Culture. Connection.",
     align: "left",
@@ -28,7 +28,7 @@ const acts = [
 </script>
 
 <template>
-  <section id="three-acts" class="acts">
+  <section class="acts">
     <article
       v-for="act in acts"
       :key="act.numeral"
@@ -85,14 +85,14 @@ const acts = [
   font-size: clamp(14rem, 42vw, 26rem);
   line-height: 1;
   color: currentColor;
-  opacity: 0.07;
+  opacity: 0.035;
   pointer-events: none;
   user-select: none;
   z-index: 0;
 }
 
 .act--light .act__numeral {
-  opacity: 0.08;
+  opacity: 0.05;
 }
 
 .act__row {
@@ -145,11 +145,6 @@ const acts = [
 
 .act--light .act__body {
   color: var(--muted-on-bone);
-}
-
-.act--deep .act__body,
-.act--immersive .act__body {
-  color: var(--ocre);
 }
 
 .act--right .act__body {

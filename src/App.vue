@@ -24,7 +24,7 @@ async function scrollToInvitation() {
       <ThreeActs />
       <InvitationForm />
     </main>
-    <TheFooter :on-request-invitation="scrollToInvitation" />
+    <TheFooter />
   </div>
 </template>
 
