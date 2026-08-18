@@ -201,7 +201,13 @@ async function submit() {
       <div class="invitation__intro" v-reveal>
         <p class="eyebrow invitation__eyebrow">Request an Invitation</p>
         <h2 class="invitation__headline">
+<<<<<<< HEAD
           THE SALON by Bluemind Foundation is an invitation-only gathering.
+=======
+          <span class="invitation__wordmark"><span>THE</span><span>SALON</span></span>
+          <span class="invitation__by">By Bluemind Foundation</span>
+          <span class="invitation__gathering">Is an invitation-only gathering.</span>
+>>>>>>> parent of ed06f30 (Final content pass: venue/time, "Join The Salon" CTA, editorial Three Acts)
         </h2>
         <p class="invitation__lede">
           Attendance is intentionally limited to 45 guests. If you believe you
@@ -435,6 +441,39 @@ async function submit() {
   max-width: 20ch;
 }
 
+<<<<<<< HEAD
+=======
+.invitation__wordmark {
+  display: block;
+  font-family: var(--font-wordmark);
+  font-weight: 700;
+  font-size: clamp(2.1rem, 5.5vw, 3.4rem);
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+}
+
+.invitation__wordmark span {
+  display: block;
+}
+
+.invitation__by {
+  display: block;
+  margin-top: 0.5rem;
+  font-family: var(--font-body);
+  font-size: clamp(0.85rem, 1.6vw, 1rem);
+  font-weight: 500;
+  color: var(--muted-on-navy);
+}
+
+.invitation__gathering {
+  display: block;
+  margin-top: 0.85rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 4.4vw, 2.6rem);
+  line-height: 1.15;
+}
+
+>>>>>>> parent of ed06f30 (Final content pass: venue/time, "Join The Salon" CTA, editorial Three Acts)
 .invitation__lede {
   margin-top: 1.25rem;
   font-size: 1.02rem;

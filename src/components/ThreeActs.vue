@@ -2,7 +2,11 @@
 const acts = [
   {
     numeral: "1",
+<<<<<<< HEAD
     label: "Act 1",
+=======
+    label: "Act I — The Evidence",
+>>>>>>> parent of ed06f30 (Final content pass: venue/time, "Join The Salon" CTA, editorial Three Acts)
     title: "Trust as Health Infrastructure.",
     body: "First public presentation of the Trust Study findings.",
     align: "left",
@@ -10,7 +14,11 @@ const acts = [
   },
   {
     numeral: "2",
+<<<<<<< HEAD
     label: "Act 2",
+=======
+    label: "Act II — The Conversation",
+>>>>>>> parent of ed06f30 (Final content pass: venue/time, "Join The Salon" CTA, editorial Three Acts)
     title: "What can we build from trust?",
     body: "A conversation exploring what trust makes possible across communities, institutions and systems.",
     align: "right",
@@ -18,7 +26,11 @@ const acts = [
   },
   {
     numeral: "3",
+<<<<<<< HEAD
     label: "Act 3",
+=======
+    label: "Act III — La Clairière",
+>>>>>>> parent of ed06f30 (Final content pass: venue/time, "Join The Salon" CTA, editorial Three Acts)
     title: "A Celebration of Black Cultures of Care.",
     body: "Care. Culture. Connection.",
     align: "left",
@@ -141,12 +153,26 @@ const acts = [
   line-height: 1.55;
   color: var(--muted-on-navy);
   max-width: 46ch;
+<<<<<<< HEAD
 }
 
 .act--light .act__body {
   color: var(--muted-on-bone);
 }
 
+=======
+}
+
+.act--light .act__body {
+  color: var(--muted-on-bone);
+}
+
+.act--deep .act__body,
+.act--immersive .act__body {
+  color: var(--ocre);
+}
+
+>>>>>>> parent of ed06f30 (Final content pass: venue/time, "Join The Salon" CTA, editorial Three Acts)
 .act--right .act__body {
   margin-left: auto;
 }

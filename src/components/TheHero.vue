@@ -86,14 +86,32 @@ defineProps({
             style="font-family: var(--font-body), sans-serif; font-weight: 500; font-size: 14.3506px; fill: var(--muted-on-navy)"
           >By invitation only</text>
 
+<<<<<<< HEAD
           <!-- CTA, embedded so it always keeps the same proportion to the rest of the artwork -->
           <foreignObject x="0" y="545" width="290" height="72">
+=======
+          <!-- CTA + scroll link, embedded so they always keep the same proportion to the rest of the artwork -->
+          <foreignObject x="0" y="545" width="290" height="60">
+>>>>>>> parent of ed06f30 (Final content pass: venue/time, "Join The Salon" CTA, editorial Three Acts)
             <button
               xmlns="http://www.w3.org/1999/xhtml"
               class="btn btn-primary-on-navy hero__cta"
               @click="onRequestInvitation"
             >
               Request an Invitation
+<<<<<<< HEAD
+=======
+            </button>
+          </foreignObject>
+
+          <foreignObject x="2" y="618" width="260" height="34">
+            <button
+              xmlns="http://www.w3.org/1999/xhtml"
+              class="hero__acts-link"
+              @click="scrollToActs"
+            >
+              The Three Acts <span aria-hidden="true">↓</span>
+>>>>>>> parent of ed06f30 (Final content pass: venue/time, "Join The Salon" CTA, editorial Three Acts)
             </button>
           </foreignObject>
 
@@ -121,6 +139,7 @@ defineProps({
   min-height: 100svh;
   overflow: hidden;
   isolation: isolate;
+  border-bottom: 3px solid var(--ocre);
 }
 
 .sr-only {
