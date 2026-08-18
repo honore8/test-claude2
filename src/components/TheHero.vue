@@ -5,6 +5,10 @@ defineProps({
     required: true,
   },
 });
+
+function scrollToActs() {
+  document.getElementById("three-acts")?.scrollIntoView({ behavior: "smooth" });
+}
 </script>
 
 <template>
@@ -86,14 +90,24 @@ defineProps({
             style="font-family: var(--font-body), sans-serif; font-weight: 500; font-size: 14.3506px; fill: var(--muted-on-navy)"
           >By invitation only</text>
 
-          <!-- CTA, embedded so it always keeps the same proportion to the rest of the artwork -->
-          <foreignObject x="0" y="545" width="290" height="72">
+          <!-- CTA + scroll link, embedded so they always keep the same proportion to the rest of the artwork -->
+          <foreignObject x="0" y="545" width="290" height="60">
             <button
               xmlns="http://www.w3.org/1999/xhtml"
-              class="btn btn-primary-on-navy hero__cta"
+              class="hero__cta"
               @click="onRequestInvitation"
             >
               Request an Invitation
+            </button>
+          </foreignObject>
+
+          <foreignObject x="2" y="618" width="260" height="34">
+            <button
+              xmlns="http://www.w3.org/1999/xhtml"
+              class="hero__acts-link"
+              @click="scrollToActs"
+            >
+              The Three Acts <span aria-hidden="true">↓</span>
             </button>
           </foreignObject>
 
@@ -121,6 +135,7 @@ defineProps({
   min-height: 100svh;
   overflow: hidden;
   isolation: isolate;
+  border-bottom: 3px solid var(--ocre);
 }
 
 .sr-only {
@@ -151,15 +166,61 @@ defineProps({
 }
 
 .hero__art :deep(.hero__cta) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
+  box-sizing: border-box;
+  font-family: var(--font-body), sans-serif;
+  font-weight: 600;
   font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   padding: 0 22px;
-  color: var(--ocre);
+  border-radius: 999px;
+  border: 1.5px solid var(--white);
+  background: transparent;
+  color: var(--white);
+  cursor: pointer;
+  transition: background-color 0.3s var(--ease), color 0.3s var(--ease);
 }
 
 .hero__art :deep(.hero__cta:hover) {
-  color: var(--ocre);
+  background: var(--white);
+  color: var(--navy);
+}
+
+.hero__art :deep(.hero__acts-link) {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  width: auto;
+  height: 100%;
+  box-sizing: border-box;
+  border: none;
+  background: none;
+  padding: 0 4px 0 10px;
+  font-family: var(--font-body), sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-on-navy);
+  cursor: pointer;
+  transition: color 0.25s var(--ease);
+}
+
+.hero__art :deep(.hero__acts-link:hover) {
+  color: var(--white);
+}
+
+.hero__art :deep(.hero__acts-link span) {
+  transition: transform 0.25s var(--ease);
+}
+
+.hero__art :deep(.hero__acts-link:hover span) {
+  transform: translateY(2px);
 }
 
 .hero__scroll {

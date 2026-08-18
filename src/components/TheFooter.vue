@@ -1,11 +1,18 @@
 <script setup>
 import PeignePick from "./PeignePick.vue";
+
+defineProps({
+  onRequestInvitation: {
+    type: Function,
+    required: true,
+  },
+});
 </script>
 
 <template>
   <footer class="footer">
     <div class="footer__comb" aria-hidden="true">
-      <PeignePick tone="light" :opacity="0.1" />
+      <PeignePick tone="light" />
     </div>
 
     <div class="container footer__top">
@@ -22,15 +29,20 @@ import PeignePick from "./PeignePick.vue";
           >.
         </p>
       </div>
-      <div class="footer__meta">
-        <p>New York · September 17, 2026</p>
-        <p>By invitation only</p>
+
+      <div class="footer__right">
+        <div class="footer__meta">
+          <p>September 17, 2026 · New York</p>
+          <p>By invitation only</p>
+        </div>
+        <button type="button" class="footer__cta" @click="onRequestInvitation">
+          Request an Invitation
+        </button>
       </div>
     </div>
 
     <div class="container footer__bottom">
-      <p class="footer__copyright">© 2026 Bluemind Foundation</p>
-      <p class="footer__tagline">Mental health is health.</p>
+      <p class="footer__copyright">© 2026 Bluemind Foundation <span aria-hidden="true">|</span> Mental health is health.</p>
     </div>
   </footer>
 </template>
@@ -64,7 +76,7 @@ import PeignePick from "./PeignePick.vue";
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-end;
-  gap: 1.5rem;
+  gap: 1.5rem 2.5rem;
 }
 
 .footer__wordmark {
@@ -99,6 +111,13 @@ import PeignePick from "./PeignePick.vue";
   text-decoration-color: var(--white);
 }
 
+.footer__right {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem 1.75rem;
+}
+
 .footer__meta {
   text-align: right;
   font-size: 0.8rem;
@@ -106,6 +125,30 @@ import PeignePick from "./PeignePick.vue";
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
+}
+
+.footer__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--white);
+  background: transparent;
+  color: var(--white);
+  cursor: pointer;
+  transition: background-color 0.3s var(--ease), color 0.3s var(--ease);
+}
+
+.footer__cta:hover {
+  background: var(--white);
+  color: var(--navy);
 }
 
 .footer__bottom {
@@ -122,11 +165,9 @@ import PeignePick from "./PeignePick.vue";
   color: var(--muted-on-navy);
 }
 
-.footer__tagline {
-  margin-top: 0.4rem;
-  font-size: 0.72rem;
-  color: var(--muted-on-navy);
-  opacity: 0.75;
+.footer__copyright span {
+  margin: 0 0.5em;
+  opacity: 0.5;
 }
 
 @media (min-width: 768px) {
@@ -139,6 +180,10 @@ import PeignePick from "./PeignePick.vue";
   .footer__top {
     flex-direction: column;
     align-items: flex-start;
+  }
+  .footer__right {
+    align-items: flex-start;
+    flex-direction: column;
   }
   .footer__meta {
     text-align: left;
