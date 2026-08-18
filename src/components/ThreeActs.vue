@@ -1,24 +1,24 @@
 <script setup>
 const acts = [
   {
-    numeral: "I",
-    label: "Act I — The Evidence",
+    numeral: "1",
+    label: "Act 1",
     title: "Trust as Health Infrastructure.",
     body: "First public presentation of the Trust Study findings.",
     align: "left",
     tone: "deep",
   },
   {
-    numeral: "II",
-    label: "Act II — The Conversation",
+    numeral: "2",
+    label: "Act 2",
     title: "What can we build from trust?",
     body: "A conversation exploring what trust makes possible across communities, institutions and systems.",
     align: "right",
     tone: "light",
   },
   {
-    numeral: "III",
-    label: "Act III — La Clairière",
+    numeral: "3",
+    label: "Act 3",
     title: "A Celebration of Black Cultures of Care.",
     body: "Care. Culture. Connection.",
     align: "left",
@@ -29,8 +29,6 @@ const acts = [
 
 <template>
   <section class="acts">
-    <p class="eyebrow acts__eyebrow container" v-reveal>The Three Acts</p>
-
     <article
       v-for="act in acts"
       :key="act.numeral"
@@ -54,11 +52,6 @@ const acts = [
   padding: clamp(3rem, 8vh, 5rem) 0 0;
 }
 
-.acts__eyebrow {
-  color: var(--muted-on-navy);
-  margin-bottom: clamp(2rem, 6vh, 4rem);
-}
-
 .act {
   position: relative;
   min-height: 62vh;
@@ -79,7 +72,7 @@ const acts = [
 
 .act--immersive {
   background:
-    radial-gradient(120% 140% at 50% 100%, rgba(216, 141, 99, 0.1), transparent 60%),
+    radial-gradient(120% 140% at 50% 100%, rgba(255, 255, 255, 0.04), transparent 60%),
     var(--navy);
 }
 
@@ -100,11 +93,6 @@ const acts = [
 
 .act--light .act__numeral {
   opacity: 0.05;
-}
-
-.act--immersive .act__numeral {
-  opacity: 0.05;
-  color: var(--terracotta);
 }
 
 .act__row {
@@ -138,10 +126,6 @@ const acts = [
 
 .act--light .act__label {
   color: var(--muted-on-bone);
-}
-
-.act--immersive .act__label {
-  color: var(--terracotta);
 }
 
 .act__title {

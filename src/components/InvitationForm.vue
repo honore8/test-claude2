@@ -1,6 +1,5 @@
 <script setup>
 import { computed, reactive, ref, nextTick } from "vue";
-import PeignePick from "./PeignePick.vue";
 
 const TOTAL_STEPS = 5;
 const MAX_WORDS = 300;
@@ -198,9 +197,6 @@ async function submit() {
 
 <template>
   <section id="invitation" class="invitation">
-    <div class="invitation__comb" aria-hidden="true">
-      <PeignePick tone="light" />
-    </div>
     <div class="container invitation__inner">
       <div class="invitation__intro" v-reveal>
         <p class="eyebrow invitation__eyebrow">Request an Invitation</p>
@@ -275,8 +271,8 @@ async function submit() {
                       <span class="field__label">Role / Title</span>
                       <input class="field__input" v-model.trim="form.role" type="text" />
                     </label>
-                    <label class="field">
-                      <span class="field__label">LinkedIn Profile (optional)</span>
+                    <label class="field field--full">
+                      <span class="field__label">LinkedIn Profile (Optional, but highly encouraged)</span>
                       <input class="field__input" v-model.trim="form.linkedin" type="url" placeholder="linkedin.com/in/…" />
                     </label>
                   </div>
@@ -420,19 +416,6 @@ async function submit() {
   isolation: isolate;
 }
 
-.invitation__comb {
-  display: none;
-  position: absolute;
-  top: 6%;
-  right: 0;
-  height: 88%;
-  width: auto;
-  aspect-ratio: 152.08364 / 526.43707;
-  opacity: 0.16;
-  z-index: 0;
-  pointer-events: none;
-}
-
 .invitation__inner {
   position: relative;
   z-index: 1;
@@ -481,12 +464,6 @@ async function submit() {
   .invitation__intro {
     position: sticky;
     top: clamp(2rem, 6vh, 3.5rem);
-  }
-}
-
-@media (min-width: 1440px) {
-  .invitation__comb {
-    display: block;
   }
 }
 
@@ -606,6 +583,10 @@ async function submit() {
 
 .field--inline {
   margin-top: 1.25rem;
+}
+
+.field--full {
+  grid-column: 1 / -1;
 }
 
 .field__label {

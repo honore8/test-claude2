@@ -132,7 +132,7 @@ defineProps({
 }
 
 .hero__date {
-  color: #e7aa7a;
+  color: var(--ocre);
 }
 
 .hero__meta-sub {
@@ -144,6 +144,11 @@ defineProps({
   margin-top: clamp(2.25rem, 6vh, 3.25rem);
   padding: clamp(1.05rem, 2.4vw, 1.4rem) clamp(2rem, 4vw, 2.75rem);
   font-size: clamp(0.8rem, 1vw, 0.9rem);
+  color: var(--ocre);
+}
+
+.hero__cta:hover {
+  color: var(--ocre);
 }
 
 .hero__scroll {
